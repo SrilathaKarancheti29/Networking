@@ -18,6 +18,7 @@
 		1BCF875528124D6D008A5EF2 /* FeedItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BCF875328124D6D008A5EF2 /* FeedItem.swift */; };
 		1BCF875928141A91008A5EF2 /* RemoteFeedLoaderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BCF875828141A91008A5EF2 /* RemoteFeedLoaderTests.swift */; };
 		1BCF875C28156B2B008A5EF2 /* RemoteFeedLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BCF875B28156B2A008A5EF2 /* RemoteFeedLoader.swift */; };
+		1BDBC3DD281D4CD8007AABB7 /* URLSessionHTTPClientTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BDBC3DC281D4CD8007AABB7 /* URLSessionHTTPClientTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +54,7 @@
 		1BCF875328124D6D008A5EF2 /* FeedItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedItem.swift; sourceTree = "<group>"; };
 		1BCF875828141A91008A5EF2 /* RemoteFeedLoaderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteFeedLoaderTests.swift; sourceTree = "<group>"; };
 		1BCF875B28156B2A008A5EF2 /* RemoteFeedLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteFeedLoader.swift; sourceTree = "<group>"; };
+		1BDBC3DC281D4CD8007AABB7 /* URLSessionHTTPClientTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSessionHTTPClientTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -119,6 +121,7 @@
 			children = (
 				1BCF873828124D0B008A5EF2 /* NetworkingTests.swift */,
 				1BCF875828141A91008A5EF2 /* RemoteFeedLoaderTests.swift */,
+				1BDBC3DC281D4CD8007AABB7 /* URLSessionHTTPClientTests.swift */,
 			);
 			path = NetworkingTests;
 			sourceTree = "<group>";
@@ -292,6 +295,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1BCF875928141A91008A5EF2 /* RemoteFeedLoaderTests.swift in Sources */,
+				1BDBC3DD281D4CD8007AABB7 /* URLSessionHTTPClientTests.swift in Sources */,
 				1BCF873928124D0B008A5EF2 /* NetworkingTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
