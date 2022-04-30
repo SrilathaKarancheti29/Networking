@@ -8,28 +8,6 @@
 import XCTest
 import Networking
 
-class URLSessionHTTPClient: HTTPClient {
-    private let session: URLSession
-    
-    init(session: URLSession = .shared) {
-        self.session = session
-    }
-    
-    struct UnexpectedValuesRepresentationError: Error {}
-    
-    func get(from url: URL, completion: @escaping (HTTPClientResult) -> Void) {
-        session.dataTask(with: url) { data, response, error in
-            if let error = error {
-                completion(.failure(error))
-            } else if let data = data, let response = response as? HTTPURLResponse{
-                completion(.success(data, response))
-            } else {
-                completion(.failure(UnexpectedValuesRepresentationError()))
-            }
-        }.resume()
-    }
-}
-
 class URLSessionHTTPClientTests: XCTestCase {
     override func setUp() {
         super.setUp()
@@ -106,8 +84,6 @@ class URLSessionHTTPClientTests: XCTestCase {
     }
     
     private func resultErrorFor(data: Data?, response: URLResponse?, error: Error?, file: StaticString = #file, line: UInt = #line) -> Error? {
-        URLProtocolStub.stub(data: data, response: response, error: error)
-        
         let result = resultFor(data: data, response: response, error: error, file: file, line: line)
 
         switch result {
@@ -135,7 +111,7 @@ class URLSessionHTTPClientTests: XCTestCase {
     }
     
     private func resultFor(data: Data?, response: URLResponse?, error: Error?, file: StaticString = #file, line: UInt = #line) -> HTTPClientResult {
-        URLProtocolStub.stub(data: data, response: response, error: nil)
+        URLProtocolStub.stub(data: data, response: response, error: error)
         
         let sut = makeSUT(file: file, line: line)
         let exp = expectation(description: "Wait for completion")
