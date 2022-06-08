@@ -48,7 +48,7 @@ class RemoteFeedLoaderTests: XCTestCase {
         let samples = [199, 201, 300, 400, 500]
         samples.enumerated().forEach { index, code in
             expect(sut, toCompleteWith: .failure(.invalidData), when: {
-                let data = makeItemsJSON(items: [])
+                let data = makeItemsJSON([])
                 client.complete(withStatusCode: code, data: data, at: index)
             })
         }
@@ -68,7 +68,7 @@ class RemoteFeedLoaderTests: XCTestCase {
         let (sut, client) = makeSUT()
 
         expect(sut, toCompleteWith: .success([]), when: {
-            let emptyListJSON = makeItemsJSON(items: [])
+            let emptyListJSON = makeItemsJSON([])
             client.complete(withStatusCode: 200, data: emptyListJSON)
 
         })
@@ -90,10 +90,25 @@ class RemoteFeedLoaderTests: XCTestCase {
         let items = [item1.model, item2.model]
         
         expect(sut, toCompleteWith: .success(items), when: {
-            let jsonData = makeItemsJSON(items: [item1.json, item2.json])
+            let jsonData = makeItemsJSON([item1.json, item2.json])
             client.complete(withStatusCode: 200, data: jsonData)
         })
 
+    }
+    
+    func test_load_DoesNotDeliverResultsWhenSUTInstanceHasBeenDeallocated() {
+        var sut: RemoteFeedLoader?
+        let client = HTTPClientSpy()
+        let url = URL(string: "http://any-url.com")!
+        sut = RemoteFeedLoader(url: url, client: client)
+
+        var capturedResults = [RemoteFeedLoader.Result]()
+        sut?.load{ capturedResults.append ($0)}
+        
+        sut = nil
+        client.complete(withStatusCode: 200, data: makeItemsJSON([]))
+
+        XCTAssertTrue(capturedResults.isEmpty)
     }
     
     private func makeItem(id: UUID, description: String? = nil, location: String? = nil, imageURL: URL) -> (model: FeedItem, json: [String: Any]) {
@@ -112,7 +127,7 @@ class RemoteFeedLoaderTests: XCTestCase {
         return(item, json)
     }
     
-    private func makeItemsJSON(items: [[String: Any]]) -> Data {
+    private func makeItemsJSON(_ items: [[String: Any]]) -> Data {
         let json = ["items" : items]
         return try! JSONSerialization.data(withJSONObject: json)
     }
