@@ -21,6 +21,7 @@
 		1BDBC3E1281D844A007AABB7 /* XCTestCase+MemoryLeakTracking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BDBC3E0281D844A007AABB7 /* XCTestCase+MemoryLeakTracking.swift */; };
 		1BDBC3E3281DC668007AABB7 /* URLSessionHTTPClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BDBC3E2281DC668007AABB7 /* URLSessionHTTPClient.swift */; };
 		1BF9B42E28504A3300C8C74A /* HTTPClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BF9B42D28504A3300C8C74A /* HTTPClient.swift */; };
+		1BF9B43028504AED00C8C74A /* FeedItemsMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BF9B42F28504AED00C8C74A /* FeedItemsMapper.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,6 +60,7 @@
 		1BDBC3E0281D844A007AABB7 /* XCTestCase+MemoryLeakTracking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "XCTestCase+MemoryLeakTracking.swift"; sourceTree = "<group>"; };
 		1BDBC3E2281DC668007AABB7 /* URLSessionHTTPClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSessionHTTPClient.swift; sourceTree = "<group>"; };
 		1BF9B42D28504A3300C8C74A /* HTTPClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPClient.swift; sourceTree = "<group>"; };
+		1BF9B42F28504AED00C8C74A /* FeedItemsMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedItemsMapper.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -142,6 +144,7 @@
 			isa = PBXGroup;
 			children = (
 				1BCF875B28156B2A008A5EF2 /* RemoteFeedLoader.swift */,
+				1BF9B42F28504AED00C8C74A /* FeedItemsMapper.swift */,
 				1BDBC3E2281DC668007AABB7 /* URLSessionHTTPClient.swift */,
 				1BF9B42D28504A3300C8C74A /* HTTPClient.swift */,
 			);
@@ -307,6 +310,7 @@
 				1BCF875528124D6D008A5EF2 /* FeedItem.swift in Sources */,
 				1BCF875428124D6D008A5EF2 /* FeedLoader.swift in Sources */,
 				1BCF872928124D09008A5EF2 /* ViewController.swift in Sources */,
+				1BF9B43028504AED00C8C74A /* FeedItemsMapper.swift in Sources */,
 				1BF9B42E28504A3300C8C74A /* HTTPClient.swift in Sources */,
 				1BCF872728124D09008A5EF2 /* AppDelegate.swift in Sources */,
 				1BCF875C28156B2B008A5EF2 /* RemoteFeedLoader.swift in Sources */,
